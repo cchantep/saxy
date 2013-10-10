@@ -155,7 +155,8 @@ If you are using `maven-xml-plugin` to transform XML files during build, you can
   </build>
 
   <!-- … -->
-</project>```
+</project>
+```
 
 ## Build
 
