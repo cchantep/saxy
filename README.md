@@ -68,7 +68,7 @@ Using Maven 2/3+, Saxy dependency can be resolved as following from your POM:
 ```xml
 <!-- ... -->
 
-  <repositories><
+  <repositories>
     <!-- ... -->
     <repository>
       <id>applicius-snapshots</id>
