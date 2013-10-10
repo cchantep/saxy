@@ -72,6 +72,8 @@ public class XHTMLEmitter extends net.sf.saxon.event.XHTMLEmitter {
             return; // Skip plain comment
         } // end of if
 
+        buff.setLength(0); // clear
+
         super.comment(process(this.buff, comment), locationId, properties);
     } // end of comment
 
