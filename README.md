@@ -88,6 +88,54 @@ Using Maven 2/3+, Saxy dependency can be resolved as following from your POM:
 
 ```
 
+If you are using `maven-xml-plugin` to transform XML files during build, you can add dependency mentionned just before inside plugin definition:
+
+```xml
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>xml-maven-plugin</artifactId>
+  <version>1.0</version>
+  <executions>
+    <execution>
+      <phase>process-sources</phase>
+      <goals>
+        <goal>transform</goal>
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+    <transformationSets>
+      <transformationSet>
+        <dir>src/main/webapp</dir>
+        <includes>
+          <include>*.xhtml</include>
+        </includes>
+        <!-- XSL stylesheet declaring Saxy output -->
+        <stylesheet>${basedir}/src/main/xsl/saxy.xsl</stylesheet>
+        <outputDir>${project.build.directory}/web</outputDir>
+          <fileMappers>
+            <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+            <targetExtension>.html</targetExtension>
+          </fileMapper>
+        </fileMappers>
+      </transformationSet>
+    </transformationSets>
+  </configuration>
+  <dependencies>
+    <dependency>
+      <groupId>net.sf.saxon</groupId>
+      <artifactId>saxon</artifactId>
+      <version>8.7</version>
+    </dependency>
+    <dependency>
+      <groupId>cchantep</groupId>
+      <artifactId>saxy</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+  </dependencies>
+</plugin>
+```
+
 ## Build
 
 `sbt publish`
