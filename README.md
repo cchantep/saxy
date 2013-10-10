@@ -45,6 +45,22 @@ To use it for transformation, following `xsl:output` should be added to the styl
             omit-xml-declaration="yes" />
 ```
 
+If you just want to strip XHTML document using such emitter, without more transformation, you can use stylesheet similar to following one:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  
+  <xsl:output xmlns:s="uri:saxy"
+              method="s:saxy.StripXHTMLEmitter" 
+              doctype-public="html"
+              omit-xml-declaration="yes" />
+
+  <xsl:template match="/"><xsl:copy-of select="." /></xsl:template>
+</xsl:stylesheet>
+```
+
 ### Maven
 
 Using Maven 2/3+, Saxy dependency can be resolved as following from your POM:
