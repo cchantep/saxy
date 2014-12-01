@@ -17,7 +17,7 @@ public class XHTMLEmitter extends net.sf.saxon.event.XHTMLEmitter {
 
     static final List<String> selfClosing = Arrays.
         asList(new String[] {
-                "link", "meta", "hr", "br", "wbr", "img", "param", 
+                "link", "meta", "base", "hr", "br", "wbr", "img", "param", 
                 "embed", "video", "audio", "source", "track", "area", 
                 "rect", "input", "button"
             });

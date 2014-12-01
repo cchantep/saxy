@@ -2,9 +2,9 @@ name := "saxy"
 
 organization := "cchantep"
 
-version := "1.0.0"
+version := "1.0.1"
 
-scalaVersion := "2.10.2"
+scalaVersion := "2.11.3"
 
 javacOptions in Test ++= Seq("-Xlint:unchecked", "-Xlint:deprecation")
 
